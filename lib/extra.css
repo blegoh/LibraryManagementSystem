@@ -1,0 +1,136 @@
+/*for paging */
+#paging {
+    font-size: 14px;
+    text-align: center;
+}
+#paging a {
+    background-position: center bottom;
+    border: 1px solid #353535;
+    color: #4B960D;
+    margin-right: 2px;
+    padding: 2px 6px;
+    text-decoration: none;
+}
+#paging a:hover {
+    background-color: #4B960D;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+#paging a.aktif {
+    border: 1px solid #353535;
+    color: #263127;
+    font-weight: bold;
+    margin-right: 2px;
+    padding: 2px 6px;
+}
+#paging a.aktif:hover {
+    background-color: #263127;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+#paging a.prevnext {
+    background-position: center bottom;
+    border: 1px solid #353535;
+    color: #61B710;
+    font-weight: bold;
+    margin-right: 2px;
+    padding: 2px 6px;
+    text-decoration: none;
+}
+#paging a.prevnext:hover {
+    background-color: #61B710;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+/* For Form */
+.form label{
+	width: 200px;
+	float: left;
+}
+.form input,textarea,select{
+	margin: 5px;
+}
+
+input.jml{
+	width: 50px;
+}
+label.error {
+    color: red;
+    display: inline;
+    font-style: italic;
+    margin-left: 10px;
+    width: auto;
+	float:none;
+}
+input.error, select.error, textarea.error {
+    border: solid 1px #FF0000;
+}
+
+
+/* Flash Message */
+.msg{
+	color: #3d4c53;
+	background-color: #58f122;
+	border: 1px solid #3d4c53;
+	border-radius: 5px;
+	font-weight: bold;
+	padding: 2px;
+	margin: 4px;
+}
+
+.msg_e{
+	color: #da1d3c;
+	background-color: #ffdbe4;
+	border: 1px solid #f00;
+	border-radius: 5px;
+	font-weight: bold;
+	padding: 2px;
+	margin: 4px;
+}
+
+.detail{
+	padding:5px;
+	margin:5px;
+}
+.detail img{
+	width:100px;
+	float:left;
+}
+
+.buku ul{
+	padding:0;
+	margin:0;
+}
+.buku li.list{
+	list-style:none;
+	margin:0;
+	padding:0;
+	background:none;
+}
+
+
+/* For Dateil Anggota */
+.da label{
+	width: 100px;
+	float: left;
+}
+.da input,textarea,select{
+	margin: 5px;
+}
+
+.info{
+	margin-top: 5px;
+	height: 169px;
+}
+.image_buku{
+	width : 100px;
+	float:left;
+}
+.image_detail{
+	width : 200px;
+	float:left;
+}
+.info_detail{
+	height: 350px;
+}
