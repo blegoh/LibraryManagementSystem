@@ -14,16 +14,22 @@ class Publisher extends \CI_Model{
     private $address;
     private $phone;
 
-    public function __construct($id){
+    public function __construct($id = 0){
         $this->id = $id;
-        $this->db->from('penerbit');
-        $this->db->where('pnb_kode', $id);
-        $query = $this->db->get();
-        foreach($query->result() as $row){
-            $this->name = $row->pnb_nama;
-            $this->address = $row->pnb_alamat;
-            $this->phone = $row->pnb_telp;
+        if($id != 0) {
+            $this->db->from('penerbit');
+            $this->db->where('pnb_kode', $id);
+            $query = $this->db->get();
+            foreach ($query->result() as $row) {
+                $this->name = $row->pnb_nama;
+                $this->address = $row->pnb_alamat;
+                $this->phone = $row->pnb_telp;
+            }
         }
+    }
+
+    public function get_id(){
+        return $this->id;
     }
 
     public function get_name(){
@@ -36,5 +42,37 @@ class Publisher extends \CI_Model{
 
     public function get_phone(){
         return $this->phone;
+    }
+
+    public function set_name($name){
+        $this->name = $name;
+    }
+
+    public function set_address($address){
+        $this->address = $address;
+    }
+
+    public function set_phone($phone){
+        $this->phone = $phone;
+    }
+
+    public function save(){
+        $data = array(
+            'pnb_nama' => $this->name,
+            'pnb_alamat' => $this->address,
+            'pnb_tlp' => $this->phone
+        );
+        $this->db->insert('penerbit', $data);
+    }
+
+    public function update(){
+        $data = array(
+            'pnb_nama' => $this->name,
+            'pnb_alamat' => $this->address,
+            'pnb_tlp' => $this->phone
+        );
+
+        $this->db->where('pnb_kode', $this->id);
+        $this->db->update('penerbit', $data);
     }
 }

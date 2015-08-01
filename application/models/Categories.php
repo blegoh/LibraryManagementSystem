@@ -23,4 +23,8 @@ class Categories extends CI_Model{
         return $this->kategori;
     }
 
+    public function get_category($id = 0){
+        return  new \models\Category($id);
+    }
+
 }

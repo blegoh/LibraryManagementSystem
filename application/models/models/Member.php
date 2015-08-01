@@ -9,7 +9,7 @@
 namespace models;
 
 
-class Anggota extends Person{
+class Member extends Person{
 
     private $id;
     private $reg_date;
@@ -28,11 +28,29 @@ class Anggota extends Person{
         $this->status = $row->ang_status_aktif;
     }
 
+    public function get_id(){
+        return $this->id;
+    }
+
     public function get_reg_date(){
         return $this->reg_date;
     }
 
     public function get_exp_date(){
         return $this->exp_date;
+    }
+
+    public function get_status(){
+        return $this->status;
+    }
+
+    public function save(){
+        $data = array(
+            'ang_nama' => 'My title',
+            'ang_alamat' => 'My Name',
+            'ang_telp' => 'My date'
+        );
+
+        $this->db->insert('mytable', $data);
     }
 }

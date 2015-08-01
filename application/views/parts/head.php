@@ -16,7 +16,7 @@
     <script type="text/javascript" src="<?=base_url()?>lib/jquery.validate.js"></script>
     <script type="text/javascript" src="<?=base_url()?>lib/ajax.js"></script>
     <script type="text/javascript" src="<?=base_url()?>lib/extra.js"></script>
-    <script src="<?=base_url()?>lib/facebox.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<?=base_url()?>lib/facebox.js" ></script>
     <script>
         jQuery(document).ready(function($) {
             $('a[rel*=facebox]').facebox()
