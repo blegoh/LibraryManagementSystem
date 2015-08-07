@@ -28,7 +28,7 @@ class Admin extends CI_Controller {
 
     public function login(){
         if($this->session->has_userdata('admin')){
-            echo $this->session->admin;
+            redirect('/Admin/home');
         }else{
             $username = $this->input->post('username');
             $password = $this->input->post('password');

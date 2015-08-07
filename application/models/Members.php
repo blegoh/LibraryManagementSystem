@@ -9,14 +9,20 @@
 class Members extends CI_Model{
 
     private $members;
+    private $status = 1;
 
     public function __construct(){
         parent::__construct();
         $this->members = array();
     }
 
+    public function set_status($status){
+        $this->status = $status;
+    }
+
     public function set_paging($limit,$per_page){
         $this->db->from('anggota');
+        $this->db->where('ang_status_aktif',$this->status);
         $this->db->limit($per_page,$limit);
         $query = $this->db->get();
         foreach ($query->result() as $row) {
@@ -34,6 +40,7 @@ class Members extends CI_Model{
 
     public function get_total_rows(){
         $this->db->from('anggota');
+        $this->db->where('ang_status_aktif',$this->status);
         $query = $this->db->get();
         return $query->num_rows();
     }

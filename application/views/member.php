@@ -25,7 +25,7 @@ $this->load->view('parts/head');
             <div class="art-content-layout">
                 <div class="art-content-layout-row">
                     <?php
-                    $this->load->view('parts/sidebar');
+                    $this->load->view('parts/sidebar_member');
                     ?>
                     <!-- End Of Sidebar -->
                     <div class="art-layout-cell art-content">
@@ -56,7 +56,6 @@ $this->load->view('parts/head');
                                                 <th>Aksi</th>
                                             </tr>
                                             <?php
-                                            $no = 1;
                                             foreach ($members as $member) {
                                             ?>
                                             <tr>

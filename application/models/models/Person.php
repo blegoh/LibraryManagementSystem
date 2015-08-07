@@ -11,9 +11,9 @@ namespace models;
 
 class Person extends \CI_Model{
 
-    private $name;
-    private $address;
-    private $phone;
+    protected $name;
+    protected $address;
+    protected $phone;
 
     public function set_name($name){
         $this->name = $name;

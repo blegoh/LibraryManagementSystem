@@ -34,8 +34,5 @@
         <li>
             <a href="<?=base_url('index.php/Petugas')?>"><span class="l"></span><span class="r"></span><span class="t">Petugas</span></a>
         </li>
-        <li>
-            <a href="<?=base_url('index.php/Admin/logout')?>"><span class="l"></span><span class="r"></span><span class="t">LogOut</a>
-        </li>
     </ul>
 </div>

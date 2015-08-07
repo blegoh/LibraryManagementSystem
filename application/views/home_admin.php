@@ -25,7 +25,7 @@ $this->load->view('parts/head');
             <div class="art-content-layout">
                 <div class="art-content-layout-row">
                     <?php
-                    $this->load->view('parts/sidebar');
+                    $this->load->view('parts/sidebar_admin');
                     ?>
                     <!-- End Of Sidebar -->
                     <div class="art-layout-cell art-content">

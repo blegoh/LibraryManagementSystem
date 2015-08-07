@@ -16,16 +16,22 @@ class Member extends Person{
     private $exp_date;
     private $status;
 
-    public function __construct($id){
+    public function __construct($id = 0 ){
         $this->id = $id;
-        $query = $this->db->get_where('anggota', array('ang_kode' => $id));
-        $row = $query->first_row();
-        parent::set_name($row->ang_nama);
-        parent::set_address($row->ang_alamat);
-        parent::set_phone($row->ang_telp);
-        $this->reg_date = $row->ang_tgl_registrasi;
-        $this->exp_date = $row->ang_tgl_kadaluarsa;
-        $this->status = $row->ang_status_aktif;
+        if($this->id != 0) {
+            $query = $this->db->get_where('anggota', array('ang_kode' => $id));
+            $row = $query->first_row();
+            parent::set_name($row->ang_nama);
+            parent::set_address($row->ang_alamat);
+            parent::set_phone($row->ang_telp);
+            $this->reg_date = $row->ang_tgl_registrasi;
+            $this->exp_date = $row->ang_tgl_kadaluarsa;
+            $this->status = $row->ang_status_aktif;
+        }
+    }
+
+    public function set_status($status){
+        $this->status = $status;
     }
 
     public function get_id(){
@@ -46,11 +52,24 @@ class Member extends Person{
 
     public function save(){
         $data = array(
-            'ang_nama' => 'My title',
-            'ang_alamat' => 'My Name',
-            'ang_telp' => 'My date'
+            'ang_nama' => $this->name,
+            'ang_alamat' => $this->address,
+            'ang_telp' => $this->phone,
+            'ang_status_aktif' => 1
         );
+        $this->db->set('ang_tgl_registrasi', 'NOW()',false);
+        $this->db->set('ang_tgl_kadaluarsa', 'NOW() + INTERVAL 3 YEAR',false);
+        $this->db->insert('anggota', $data);
+    }
 
-        $this->db->insert('mytable', $data);
+    public function update(){
+        $data = array(
+            'ang_nama' => $this->name,
+            'ang_alamat' => $this->address,
+            'ang_telp' => $this->phone,
+            'ang_status_aktif' => $this->status
+        );
+        $this->db->where('ang_kode', $this->id);
+        $this->db->update('anggota', $data);
     }
 }

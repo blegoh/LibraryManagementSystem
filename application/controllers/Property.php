@@ -10,6 +10,7 @@ class Property extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
+        $this->load->library('session');
         if(!$this->session->has_userdata('admin')) redirect('/');
         $this->load->model('Categories');
         $this->load->model('Publishers');
